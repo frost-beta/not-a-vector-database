@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "outDir": "dist",
+    "declaration": true,
+    "allowJs": false,
+    "module": "commonjs",
+    "resolveJsonModule": true,
+    "target": "es2023",
+    "lib": [ "esnext" ]
+  },
+  "include": [ "*.ts" ],
+  "exclude": [ "node_modules" ]
+}

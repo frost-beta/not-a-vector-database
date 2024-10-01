@@ -1,0 +1,30 @@
+{
+  "name": "not-a-vector-database",
+  "version": "0.0.1-dev",
+  "description": "Store and search embeddings",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "prepack": "tsc",
+    "pretest": "tsc",
+    "test": "node --test dist/test.js"
+  },
+  "author": "zcbenz",
+  "license": "MIT",
+  "keywords": [ "mlx", "embeddings", "vector database" ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/frost-beta/not-a-vector-database.git"
+  },
+  "bugs": {
+    "url": "https://github.com/frost-beta/not-a-vector-database/issues"
+  },
+  "devDependencies": {
+    "@types/node": "22.5.4",
+    "typescript": "5.6.2"
+  },
+  "dependencies": {
+    "@frost-beta/mlx": "0.0.21",
+    "bser": "2.1.1"
+  }
+}
