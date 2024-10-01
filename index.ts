@@ -1,5 +1,5 @@
 import {core as mx, nn} from '@frost-beta/mlx';
-import bser from 'bser';
+import * as bser from 'bser';
 
 type TypedArray = Int8Array | Uint8Array | Int16Array | Uint16Array |
                   Int32Array | Uint32Array | Float32Array | Float64Array;
@@ -33,7 +33,7 @@ export class Storage {
    * Initialize from the buffer.
    */
   loadFromBuffer(buffer: Buffer) {
-    const json = bser.loadFromBuffer(buffer);
+    const json = bser.loadFromBuffer(buffer) as any;
     if (!Array.isArray(json.embeddings) && !Array.isArray(json.data))
       throw new Error('The buffer does not includes valid data.');
     if (this.embeddings)

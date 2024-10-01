@@ -20,6 +20,7 @@
     "url": "https://github.com/frost-beta/not-a-vector-database/issues"
   },
   "devDependencies": {
+    "@types/bser": "2.0.4",
     "@types/node": "22.5.4",
     "typescript": "5.6.2"
   },
