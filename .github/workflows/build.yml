@@ -4,15 +4,33 @@ on: [push, pull_request]
 
 jobs:
   build:
-    runs-on: ${{ matrix.os }}
+    runs-on: >-
+      ${{
+        (matrix.os == 'mac' && matrix.arch == 'arm64') &&
+          'macos-14' ||
+          (fromJson('{"linux":"ubuntu-22.04","mac":"macos-13","win":"windows-2022"}')[matrix.os])
+      }}
     continue-on-error: false
 
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-22.04, macos-13, macos-14]
+        os: [linux, mac]
+        arch: [x64]
+        include:
+          - os: mac
+            arch: arm64
 
     steps:
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install mac dependencies
+        if: matrix.os == 'mac' && matrix.arch == 'x64'
+        run: brew install openblas
+
       - name: Checkout
         uses: actions/checkout@v4
 
